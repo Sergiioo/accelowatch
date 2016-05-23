@@ -1,0 +1,35 @@
+@import 'common';
+
+$crown-width: 1rem;
+$crown-height: 2rem;
+$crown-corners: 1px 3px 3px 1px;
+$crown-border-width: .1rem;
+
+
+.crown {
+  width: $crown-width;
+  height: $crown-height;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin-left: ($watch-size / 2) + $crown-width - $crown-border-width;
+  margin-top: -($crown-height/2);
+  border-radius: $crown-corners;
+  box-shadow: 5px 5px 50px black;
+  border-left: $crown-border-width solid #C0C0C0;
+  border-right: $crown-border-width solid #999999;
+  background: repeating-linear-gradient(
+      #C0C0C0,
+      #C0C0C0 4px,
+      #808080 4px,
+      #EFEFEF 8px
+  );
+  &:after {
+    content: '';
+    background: linear-gradient(transparent, rgba(0, 0, 0, .3));
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: $crown-corners;
+  }
+}

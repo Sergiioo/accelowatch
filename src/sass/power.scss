@@ -1,0 +1,63 @@
+@import 'common';
+
+$power-reserve-width: 7rem;
+$power-reserve-height: 4rem;
+$power-reserve-indicator-width: .2rem;
+$power-reserve-indicator-colour: #eee;
+$power-reserve-full: -60deg;
+$power-reserve-empty: 60deg;
+
+@mixin power-levels {
+  @for $power from 0 through 10 {
+    $angle: ($power / 10) * (2 * $power-reserve-full) - $power-reserve-full;
+    &[data-power='#{$power}'] {
+      transform: rotate($angle);
+    }
+  }
+}
+
+.power-reserve-scale {
+  position: fixed;
+  width: $power-reserve-width;
+  height: $power-reserve-height;
+  left: 50%;
+  margin-left: -($power-reserve-width / 2);
+  top: 50%;
+  margin-top: -3.7rem;
+  overflow: hidden;
+  & > ul {
+    margin-top: -5rem;
+    border-radius: 50%;
+    @include on-circle($item-count: 30, $circle-size: $power-reserve-width, $item-size: .5rem);
+    & li {
+      background-color: #ECECEC;
+      text-align: center;
+      height: .1rem;
+      width: .5rem;
+    }
+  }
+}
+
+#power-reserve-indicator {
+  position: absolute;
+  height: 2.7rem;
+  width: $power-reserve-indicator-width;
+  background: #eee;
+  top: 2.4rem;
+  border-radius: 1px;
+  left: $watch-size / 2 - ($power-reserve-indicator-width / 2);
+  transform-origin: top;
+  transform: rotate($power-reserve-empty);
+  transition: transform 1s linear;
+  &:before {
+    content: '';
+    border-radius: 50%;
+    height: .4rem;
+    width: .4rem;
+    position: absolute;
+    left: -.1rem;
+    background: $power-reserve-indicator-colour;
+  }
+  @include power-levels;
+}
+

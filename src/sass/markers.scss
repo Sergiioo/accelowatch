@@ -1,0 +1,60 @@
+@import 'dial';
+@import 'common';
+
+$numerals-circle-size: $watch-size - 4rem;
+$numerals-color: #eee;
+$numerals-size: 1.8rem;
+$marker-size: 1rem;
+
+ol.numerals {
+  margin-top: 2rem;
+  margin-left: 2rem;
+  counter-reset: item -1;
+  @include on-circle($item-count: 12, $circle-size: $numerals-circle-size, $item-size: $numerals-size, $align: true);
+  & li {
+    font-size: $numerals-size;
+    width: $numerals-size;
+    height: $numerals-size;
+    text-align: center;
+    line-height: $numerals-size;
+    &:before {
+      content: counter(item) '';
+      counter-increment: item 1;
+      color: $numerals-color;
+    }
+    &:nth-of-type(1) {  //  hide 12 o'clock
+      visibility: hidden;
+    }
+    &:nth-of-type(4) {  //  hide 3 o'clock
+      visibility: hidden;
+    }
+  }
+}
+
+ul.markers-min {
+  margin-top: .7rem;
+  margin-left: .25rem;
+  @include on-circle($item-count: 60, $circle-size: $watch-size - .5rem, $item-size: $marker-size);
+  & li {
+    background-color: #ECECEC;
+    text-align: center;
+    height: .1rem;
+    width: $marker-size;
+    &:nth-child(5n + 1) {
+      display: none;
+    }
+  }
+}
+
+ul.markers-hour {
+  margin-top: .9rem;
+  margin-left: .5rem;
+  @include on-circle($item-count: 12, $circle-size: $watch-size - 1rem, $item-size: $marker-size);
+  & li {
+    background-color: #EEEEEE;
+    text-align: center;
+    height: .2rem;
+    width: $marker-size;
+    box-shadow: -1px 0 0 1px #333;
+  }
+}

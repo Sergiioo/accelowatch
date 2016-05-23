@@ -1,0 +1,99 @@
+@import 'common';
+
+$hour-hand-width: 1rem;
+$hour-hand-length: 3rem;
+$hour-hand-extend-length: 4.8rem;
+
+$minute-hand-width: 1rem;
+$minute-hand-length: 4.3rem;
+
+$hand-border-colour: #4C6AAA;
+
+$second-hand-width: .2rem;
+$second-hand-length: 8.5rem;
+$second-hand-fulcrum: 2rem;
+
+@keyframes time-travel {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@mixin hand-shape($width, $base-length, $tip-length, $colour) {
+  //  this is the short triangle that is the base of the hand near the centre
+  position: relative;
+  height: 0;
+  width: 0;
+  border-style: solid;
+  border-color: transparent transparent $colour transparent;
+  border-width: 0 $width / 2 $base-length $width / 2;
+  &::after {
+    //  this is the long triangle that is the end of the hand near the numerals
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: $base-length;
+    left: -$width / 2;
+    border-style: solid;
+    border-color: $colour transparent transparent transparent;
+    border-width: $tip-length $width / 2 0 $width / 2;
+  }
+}
+
+.second-hand {
+  width: $second-hand-width;
+  height: $second-hand-length;
+  background: linear-gradient($hand-border-colour 3rem, $hand-border-colour 3rem, $lume-colour 3rem);
+  border-radius: 2px;
+  border: 1px solid $hand-border-colour;
+  transform-origin: center $second-hand-fulcrum;
+  box-shadow: 0 0 3px black;
+}
+
+.minute-hand {
+  transform-origin: center 0;
+  @include hand-shape($minute-hand-width, 2rem, $minute-hand-length, $lume-colour);
+}
+
+.hour-hand {
+  transform-origin: center 0;
+  @include hand-shape($hour-hand-width, 1rem, $hour-hand-length, $lume-colour);
+}
+
+.hand-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.second-hand-container {
+  margin-top: -$second-hand-fulcrum;
+  margin-left: -($second-hand-width / 2);
+  transform-origin: center $second-hand-fulcrum;
+}
+
+.minute-hand-container {
+  margin-left: -($minute-hand-width / 2);
+  transform-origin: center 0;
+}
+
+.hour-hand-container {
+  margin-left: -($hour-hand-width / 2);
+  transform-origin: center 0;
+}
+
+.ticking {
+  & .hour-hand {
+    animation: time-travel 216000s linear infinite;
+  }
+  & .minute-hand {
+    animation: time-travel 3600s linear infinite;
+  }
+  & .second-hand {
+    animation: time-travel 60s linear infinite;
+  }
+}

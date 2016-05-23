@@ -1,0 +1,56 @@
+$watch-size: 15rem;
+$background-colour: #4E4C35;
+$watch-dial-colour: #222;
+$lume-colour: #C4D1B7;
+
+body {
+  background: $background-colour;
+  font-family: "Arial Nova Light", Arial, sans-serif;
+}
+
+ul, ol {
+  margin: 0;
+}
+
+@mixin centre-stage($width) {
+  position: absolute;
+  left: 50%;
+  margin-left: -$width / 2;
+  top: 50%;
+  margin-top: -$width / 2;
+}
+
+/// Based on prior work @ https://css-tricks.com/snippets/sass/placing-items-circle/
+/// @param {Integer} $item-count - Number of items on the circle
+/// @param {Length} $circle-size - Large circle size
+/// @param {Length} $item-size - Single item size
+@mixin on-circle($item-count, $circle-size, $item-size, $align: false) {
+  position: absolute;
+  width: $circle-size;
+  height: $circle-size;
+  padding: 0;
+  border-radius: 50%;
+  list-style: none;
+
+  > * {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -($item-size / 2);
+
+    $angle: (360 / $item-count);
+    $rot: 0;
+
+    @for $i from 1 through $item-count {
+      &:nth-of-type(#{$i}) {
+        @if($align) {
+          transform: rotate(($rot * 1deg) - 90deg) translate($circle-size / 2) rotate((-$rot * 1deg) + 90deg);
+        } @else {
+          transform: rotate(($rot * 1deg) - 90deg) translate($circle-size / 2);
+        }
+      }
+      $rot: $rot + $angle;
+    }
+  }
+}
