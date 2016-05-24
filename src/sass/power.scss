@@ -4,8 +4,8 @@ $power-reserve-width: 7rem;
 $power-reserve-height: 4rem;
 $power-reserve-indicator-width: .2rem;
 $power-reserve-indicator-colour: #eee;
-$power-reserve-full: -60deg;
-$power-reserve-empty: 60deg;
+$power-reserve-full: -52deg;
+$power-reserve-empty: 52deg;
 
 @mixin power-levels {
   @for $power from 0 through 10 {
@@ -23,7 +23,7 @@ $power-reserve-empty: 60deg;
   left: 50%;
   margin-left: -($power-reserve-width / 2);
   top: 50%;
-  margin-top: -3.7rem;
+  margin-top: -3.8rem;
   overflow: hidden;
   & > ul {
     margin-top: -5rem;
@@ -34,7 +34,44 @@ $power-reserve-empty: 60deg;
       text-align: center;
       height: .1rem;
       width: .5rem;
+      visibility: hidden;
+      &:nth-child(n+12):nth-child(-n+20) {
+        visibility: visible;
+      }
     }
+    &:after {
+      content: 'Reserve';
+      text-transform: uppercase;
+      font-size: .5rem;
+      color: $dial-text-colour;
+      text-align: center;
+      top: 5.25rem;
+      left: 0;
+      right: 0;
+      position: absolute;
+    }
+  }
+  &:before,&:after {
+    color: $dial-text-colour;
+    font-size: .3rem;
+    position: absolute;
+    text-transform: uppercase;
+  }
+  &:before {
+    content: 'Min';
+    top: .2rem;
+    left: .2rem;
+    padding-left: .2rem;
+    text-align: left;
+    transform: rotate(-40deg);
+  }
+  &:after {
+    content: 'Max';
+    top: .2rem;
+    right: .2rem;
+    padding-right: .2rem;
+    text-align: right;
+    transform: rotate(40deg);
   }
 }
 
@@ -43,12 +80,13 @@ $power-reserve-empty: 60deg;
   height: 2.7rem;
   width: $power-reserve-indicator-width;
   background: #eee;
-  top: 2.4rem;
+  top: 2.2rem;
   border-radius: 1px;
   left: $watch-size / 2 - ($power-reserve-indicator-width / 2);
   transform-origin: top;
   transform: rotate($power-reserve-empty);
   transition: transform 1s linear;
+  box-shadow: .1rem 0 .3rem .1rem black;
   &:before {
     content: '';
     border-radius: 50%;

@@ -1,0 +1,15 @@
+@import 'common';
+
+body {
+  background: $background-colour;
+  transition: background .3s ease-out;
+  font-family: "Arial Nova Light", Arial, sans-serif;
+  &.winding {
+    background: lighten($background-colour, 20);
+  }
+}
+
+header {
+  visibility: hidden;
+}
+

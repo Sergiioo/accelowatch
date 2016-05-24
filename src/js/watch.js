@@ -27,20 +27,25 @@ var MainSpring = (function () {
             this.updatePower();
         },
         enumerable: true,
-        configurable: true
+        configurable: false
     });
 
     //  increment the amount that the spring is wound, and start ticking
     MainSpring.prototype.wind = function (increment) {
+        var previous = this.powerReserve;
+        this.startWindingDown();
         increment = increment || 1;
-        if (this.powerReserve === 0) {
-            this.startWindingDown();
-        }
         this.powerReserve += increment;
+        return previous < this.powerReserve;
     };
 
     //  the spring winds down a chunk each second
     MainSpring.prototype.startWindingDown = function () {
+        //  don't start again
+        if (this.intervalId) {
+            return;
+        }
+
         //  add the ticking animation
         var hands = document.getElementsByClassName('hand-container');
         Array.prototype.forEach.call(hands, function (handElement) {
@@ -117,9 +122,24 @@ var Rotor = (function () {
     Rotor.prototype.onAcceleration = function (event) {
         if (event && event.acceleration) {
             if (Math.abs(event.acceleration.x) > 3 || Math.abs(event.acceleration.y) > 3) {
-                this.mainSpring.wind();
+                if (this.mainSpring.wind()) {
+                    this.highlight();
+                }
             }
         }
+    };
+
+    Rotor.prototype.highlight = function () {
+        var self = this;
+        if (this.timeoutId) {
+            window.clearTimeout(this.timeoutId);
+            this.timeoutId = null;
+        }
+        this.timeoutId = document.body.classList.add('winding');
+        window.setTimeout(function () {
+            document.body.classList.remove('winding');
+            self.timeoutId = null;
+        }, 200);
     };
 
     return Rotor;

@@ -44,4 +44,25 @@ $pinion-surround-color: #363F48;
   box-shadow: 0 0 0 $pinion-surround-size $pinion-surround-color;
   z-index: 10;
   @include centre-stage($pinion-centre-size);
+  &:before,&:after {
+    text-align: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 50%;
+  }
+  &:before {
+    text-transform: uppercase;
+    color: $dial-text-colour;
+    content: 'Accelomatic';
+    margin-top: 2rem;
+    font-size: .6rem;
+  }
+  &:after {
+    content: '200m (660ft)';
+    margin-top: 2.8rem;
+    font-size: .5rem;
+    font-style: italic;
+    color: #4C6AAA;
+  }
 }
