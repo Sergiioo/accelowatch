@@ -17,7 +17,7 @@ ul, ol {
   height: 15rem;
   background: #222;
   border-radius: 50%;
-  box-shadow: 0 0 0 .3rem #EEE, 0 0 0 .8rem #A4A4A4, -.1rem -.1rem 0 1rem #BFBFBF, .1rem .1rem 0 1rem #7A7A7A, 1rem 1rem 4rem black, inset 0 .5rem 1rem black;
+  box-shadow: 0 0 0 .3rem #EEE, 0 0 0 .8rem #A4A4A4, -.1rem -.1rem 0 1rem #BFBFBF, .1rem .1rem 0 1rem #7A7A7A, 1rem 1rem 4rem black, inset 0 .5rem 1rem black;
   position: absolute;
   left: 50%;
   margin-left: -7.5rem;
@@ -45,10 +45,11 @@ ul, ol {
   margin-top: -0.125rem; }
   .pinion:before, .pinion:after {
     text-align: center;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 50%; }
+    position: absolute;
+    top: 50%;
+    width: 10rem;
+    left: 50%;
+    margin-left: -5rem; }
   .pinion:before {
     text-transform: uppercase;
     color: #A7A7A7;
@@ -78,7 +79,7 @@ ul, ol {
   height: 15rem;
   background: #222;
   border-radius: 50%;
-  box-shadow: 0 0 0 .3rem #EEE, 0 0 0 .8rem #A4A4A4, -.1rem -.1rem 0 1rem #BFBFBF, .1rem .1rem 0 1rem #7A7A7A, 1rem 1rem 4rem black, inset 0 .5rem 1rem black;
+  box-shadow: 0 0 0 .3rem #EEE, 0 0 0 .8rem #A4A4A4, -.1rem -.1rem 0 1rem #BFBFBF, .1rem .1rem 0 1rem #7A7A7A, 1rem 1rem 4rem black, inset 0 .5rem 1rem black;
   position: absolute;
   left: 50%;
   margin-left: -7.5rem;
@@ -106,10 +107,11 @@ ul, ol {
   margin-top: -0.125rem; }
   .pinion:before, .pinion:after {
     text-align: center;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 50%; }
+    position: absolute;
+    top: 50%;
+    width: 10rem;
+    left: 50%;
+    margin-left: -5rem; }
   .pinion:before {
     text-transform: uppercase;
     color: #A7A7A7;
@@ -459,7 +461,7 @@ ul, ol {
 .crown {
   width: 1rem;
   height: 2rem;
-  position: fixed;
+  position: absolute;
   left: 50%;
   top: 50%;
   margin-left: 8.4rem;
@@ -481,7 +483,7 @@ ul, ol {
   margin: 0; }
 
 .lug {
-  position: fixed;
+  position: absolute;
   width: 9.5rem;
   left: 50%;
   margin-left: -5.75rem;
@@ -500,7 +502,7 @@ ul, ol {
   margin: 0; }
 
 .strap {
-  position: fixed;
+  position: absolute;
   left: 50%;
   margin-left: -3.5rem;
   background: #632900;
@@ -559,7 +561,7 @@ ul, ol {
   margin: 0; }
 
 .power-reserve-scale {
-  position: fixed;
+  position: absolute;
   width: 7rem;
   height: 4rem;
   left: 50%;
@@ -574,7 +576,6 @@ ul, ol {
     width: 7rem;
     height: 7rem;
     padding: 0;
-    border-radius: 50%;
     list-style: none; }
     .power-reserve-scale > ul > * {
       display: block;
@@ -739,7 +740,9 @@ ul, ol {
   border-radius: 1px;
   padding-left: .2rem;
   padding-right: .2rem;
-  box-shadow: inset -.05rem -.05rem 0 .05rem #767676, inset .05rem .05rem 0 .05rem #121212, inset 0 0 0 .1rem yellow; }
+  box-shadow: inset -.05rem -.05rem 0 .05rem #767676,
+ inset .05rem .05rem 0 .05rem #121212,
+ inset 0 0 0 .1rem yellow; }
 
 .date-text {
   font-size: 1.1rem;
