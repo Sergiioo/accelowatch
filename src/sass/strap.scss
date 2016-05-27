@@ -11,7 +11,7 @@ $stitch-border: $stitch-width $stitch-colour dashed;
 $stitch-radius: .3rem;
 
 .strap {
-  position: fixed;
+  position: absolute;
   left: 50%;
   margin-left: -($strap-width / 2);
   background: $strap-colour;

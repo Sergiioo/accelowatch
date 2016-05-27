@@ -9,7 +9,7 @@ $crown-border-width: .1rem;
 .crown {
   width: $crown-width;
   height: $crown-height;
-  position: fixed;
+  position: absolute;
   left: 50%;
   top: 50%;
   margin-left: ($watch-size / 2) + $crown-width - $crown-border-width;

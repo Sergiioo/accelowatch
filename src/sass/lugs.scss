@@ -5,7 +5,7 @@ $lug-length: 4rem;
 $lug-border-width: 1rem;
 
 .lug {
-  position: fixed;
+  position: absolute;
   width: $lug-width;
   left: 50%;
   margin-left: -($lug-width / 2) - $lug-border-width;

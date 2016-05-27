@@ -46,10 +46,11 @@ $pinion-surround-color: #363F48;
   @include centre-stage($pinion-centre-size);
   &:before,&:after {
     text-align: center;
-    position: fixed;
-    left: 0;
-    right: 0;
+    position: absolute;
     top: 50%;
+    width: 10rem;
+    left: 50%;
+    margin-left: -5rem;
   }
   &:before {
     text-transform: uppercase;

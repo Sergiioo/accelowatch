@@ -17,7 +17,7 @@ $power-reserve-empty: 52deg;
 }
 
 .power-reserve-scale {
-  position: fixed;
+  position: absolute;
   width: $power-reserve-width;
   height: $power-reserve-height;
   left: 50%;
