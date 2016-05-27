@@ -5,7 +5,7 @@ accelowatch
 
 #### Demo
 
-[Live demo](http://sergiioo.github.io/accelowatch "GitHub pages accelowatch live demo")  hosted on github pages.
+[Live demo](https://sergiioo.github.io/accelowatch "GitHub pages accelowatch live demo")  hosted on github pages.
 
 Works best on devices with an accelerometer, as that's how you "wind" the spring.
 
