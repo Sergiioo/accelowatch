@@ -36,14 +36,7 @@ $pinion-surround-color: #363F48;
   }
 }
 
-.pinion {
-  height: .25rem;
-  width: .25rem;
-  border-radius: 50%;
-  background: $pinion-centre-colour;
-  box-shadow: 0 0 0 $pinion-surround-size $pinion-surround-color;
-  z-index: 10;
-  @include centre-stage($pinion-centre-size);
+.branding {
   &:before,&:after {
     text-align: center;
     position: absolute;
@@ -66,4 +59,14 @@ $pinion-surround-color: #363F48;
     font-style: italic;
     color: #4C6AAA;
   }
+}
+
+.pinion {
+  height: .25rem;
+  width: .25rem;
+  border-radius: 50%;
+  background: $pinion-centre-colour;
+  box-shadow: 0 0 0 $pinion-surround-size $pinion-surround-color;
+  z-index: 10;
+  @include centre-stage($pinion-centre-size);
 }
