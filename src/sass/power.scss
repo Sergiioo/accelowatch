@@ -2,7 +2,7 @@
 
 $power-reserve-width: 7rem;
 $power-reserve-height: 4rem;
-$power-reserve-indicator-width: .2rem;
+$power-reserve-indicator-width: .15rem;
 $power-reserve-indicator-colour: #eee;
 $power-reserve-full: -52deg;
 $power-reserve-empty: 52deg;
@@ -86,7 +86,7 @@ $power-reserve-empty: 52deg;
   transform-origin: top;
   transform: rotate($power-reserve-empty);
   transition: transform 1s linear;
-  box-shadow: .1rem 0 .3rem .1rem black;
+  box-shadow: .1rem 0 .3rem .1rem #121212;
   &:before {
     content: '';
     border-radius: 50%;
